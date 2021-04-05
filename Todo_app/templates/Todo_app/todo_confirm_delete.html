@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .inputBox {
+            background-color: white;
+            display: flex;
+            border-radius: 30px;
+            justify-content: center;
+            margin:auto;
+            width: 80%;
+            height: 50%;
+        }
+
+        .inputBox__name {
+            border-style:none;
+            border-bottom:1px solid #ddd;
+            width: 40%;
+            margin-left: 20px;
+        }
+
+        .inputBox__todo {
+            border-style:none;
+            border-bottom:1px solid #ddd;
+            width: 60%;
+            margin-left: 10px;
+        }
+
+        .inputBox__add {
+            border-style:none;
+            border-bottom:1px solid #ddd;
+            margin-right : 20px;
+            width: 200px;
+        }
+
+        .todoList {
+            background-color: white;
+        }
+
+        .removeBtn {
+            margin-left: auto;
+            font-size: 20px;;
+        }
+
+
+        body {
+            background-color: skyblue;
+            text-align: center;
+        };
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>TODO Delete</h2>
+        <p>Are you sure to delete? {{ todo }}</p>
+    </h2>
+
+    <form action="." method='post'> {% csrf_token %}
+        <button type='submit'>
+            confirm
+        </button>
+    </form>
+</body>
+</html>

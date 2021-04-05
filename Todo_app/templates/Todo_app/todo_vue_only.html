@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .inputBox {
+            background-color: white;
+            display: flex;
+            border-radius: 30px;
+            justify-content: center;
+            margin:auto;
+            width: 80%;
+            height: 50%;
+        }
+
+        .inputBox__name {
+            border-style:none;
+            border-bottom:1px solid #ddd;
+            width: 40%;
+            margin-left: 20px;
+        }
+
+        .inputBox__todo {
+            border-style:none;
+            border-bottom:1px solid #ddd;
+            width: 60%;
+            margin-left: 10px;
+        }
+
+        .inputBox__add {
+            border-style:none;
+            border-bottom:1px solid #ddd;
+            margin-right : 20px;
+            width: 200px;
+        }
+
+        .todoList {
+            background-color: white;
+        }
+
+        .removeBtn {
+            margin-left: auto;
+            font-size: 20px;;
+        }
+
+
+        body {
+            background-color: skyblue;
+            text-align: center;
+        };
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id=app>
+        <h1>My Todo App!</h1>
+
+        <h5>JSH - 개발 시작 04.03 @BEM 방식 반드시 준수@</h5>
+        <br>
+
+        <div class="inputBox">
+            <div class="inputBox__name">
+                <input type="text" required placeholder ="name..." v-model='name'>  <!--아래있는 변수와 input tag를 바인딩 해줍니다 이런 방식의 바인딩을 한다면 아래 Vue 파트와 양방향으로 정보를 주고 받을 수 있습니다.-->
+            </div>
+            <div class="inputBox__todo">
+                <input type="text" required placeholder="Enter What you want!" v-model="newTodoItem" v-on:keyup.enter="add_todo">
+            </div> 
+            <button v-on:click= "add_todo" >
+                Add
+            </button>
+        </div>
+        
+            <ul class="todoList">
+                <li v-for = "(todo, index) in todoItems">
+                    <span>{ todo.name }:: { todo.item }</span>
+                    <span v-on:click="remove_todo(index)" class="removeBtn">&#x00D7</span>
+                </li>
+            </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        var vm = new Vue({
+            delimiters: ['{', '}'],
+            el: '#app',
+            data: {
+                name : '',
+                newTodoItem: '',
+                todoItems:[
+                    {name: '정승화', item: 'Django와 Vue를 사용한 Todo 프로그램 제작'},
+                    {name: '장동건', item: '굉장히 부담스럽네요'},
+                    {name: '원빈', item: '해커톤은 처음이라서요 잘 부탁드려요'}       
+                ]
+            },
+            methods: {
+                add_todo: function() {
+                    console.log("할 일을 추가합니다...");
+                    if(this.name == '') this.name = "홍길동";
+                    if(this.newTodoItem== '') return;
+
+                    this.todoItems.push({name: this.name, item: this.newTodoItem});
+                    this.name ='';
+                    this.newTodoItem = '';
+                },
+
+                remove_todo: function(index) {
+                    console.log("할 일을 삭제 합니다...");
+                    this.todoItems.splice(index, 1)
+                }
+            },            
+        })
+    </script>
+</body>
+</html>
