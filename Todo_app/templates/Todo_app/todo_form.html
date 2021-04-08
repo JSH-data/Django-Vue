@@ -1,6 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+
+    {% block title %} todo_form.html {% endblock %}
+    {% block extra-style %}
+    
     <style>
         .inputBox {
             background-color: white;
@@ -44,17 +46,14 @@
 
 
         body {
+            padding-top: 70px;
             background-color: skyblue;
             text-align: center;
         };
-    </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id=app>
+</style>
+{% endblock  %}
+{% block content %}
+    <div id='app'>
         <h1>My Todo App!</h1>
 
         <h5>JSH - 개발 시작 04.03 @BEM 방식 반드시 준수@</h5>
@@ -67,10 +66,10 @@
             <div class="inputBox__todo">
                 <input type="text" required placeholder="Enter What you want!" name="todo" > <!--name은 장고의 model의 컬럼명과 동일해야합니다. -->
             </div> 
-            <button type='submit'>Add</button>
+            <button type='submit' class="btn btn-info btn-sm">Add</button>
         </form>
     
     </div>
+{% endblock  %}
 
-</body>
-</html>
+{% block footer %}{% endblock  %}

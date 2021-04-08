@@ -1,59 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        .inputBox {
-            background-color: white;
-            display: flex;
-            border-radius: 30px;
-            justify-content: center;
-            margin:auto;
-            width: 80%;
-            height: 50%;
-        }
+{% extends 'base.html' %}
 
-        .inputBox__name {
-            border-style:none;
-            border-bottom:1px solid #ddd;
-            width: 40%;
-            margin-left: 20px;
-        }
+{% block title %}todo_vue_only.html{% endblock %}
+{% block extra-style %}
+<style>
+.inputBox {
+background-color: white;
+display: flex;
+border-radius: 30px;
+justify-content: center;
+margin:auto;
+width: 80%;
+height: 50%;
+}
 
-        .inputBox__todo {
-            border-style:none;
-            border-bottom:1px solid #ddd;
-            width: 60%;
-            margin-left: 10px;
-        }
+.inputBox__name {
+border-style:none;
+border-bottom:1px solid #ddd;
+width: 40%;
+margin-left: 20px;
+}
 
-        .inputBox__add {
-            border-style:none;
-            border-bottom:1px solid #ddd;
-            margin-right : 20px;
-            width: 200px;
-        }
+.inputBox__todo {
+border-style:none;
+border-bottom:1px solid #ddd;
+width: 60%;
+margin-left: 10px;
+}
 
-        .todoList {
-            background-color: white;
-        }
+.inputBox__add {
+border-style:none;
+border-bottom:1px solid #ddd;
+margin-right : 20px;
+width: 200px;
+}
 
-        .removeBtn {
-            margin-left: auto;
-            font-size: 20px;;
-        }
+.todoList {
+background-color: white;
+}
+
+.removeBtn {
+margin-left: auto;
+font-size: 20px;;
+}
 
 
-        body {
-            background-color: skyblue;
-            text-align: center;
-        };
-    </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+body {
+padding-top: 70px;
+background-color: skyblue;
+text-align: center;
+}
+</style>
+{% endblock %}    
+    
+{% block content %}
     <div id=app>
         <h1>My Todo App!</h1>
 
@@ -79,6 +78,9 @@
                 </li>
             </ul>
     </div>
+{% endblock %}
+
+{% block extra-script %}
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
@@ -112,5 +114,4 @@
             },            
         })
     </script>
-</body>
-</html>
+{% endblock  %}
